@@ -59,7 +59,8 @@ module.exports = async function (type, name, argv) {
     //Name of the component, default newComponent or newRoute based on type
     const genName = name || (genType === 'route' ? 'newRoute' : argv.name);
     //Replacing the placeholder name with the name of the component or "newComponent"/"newRoute" if not specified
-    let dest = argv.dest.replace("{name}", genName);
+    let dest = join(argv.dest, "{name}");
+    dest = dest.replace("{name}", genName);
     //Local destination for the 
     const genDest = genType === "route" ? dest.replace("components", "routes") : dest;
     let finalDirectory = join(cwd, genDest)
@@ -97,7 +98,9 @@ module.exports = async function (type, name, argv) {
     try {
         console.log("__dirname: ", __dirname);
         console.log("CWD: ", cwd);
-        console.log("Dest: ", genDest);
+        console.log("Dest: ", dest)
+        console.log("Argv Type: ", typeof argv.dest );
+        console.log("genDest: ", genDest);
         console.log("Name: ", genName);
         console.log("Final pasting Directory: ", finalDirectory)
     } catch (error) {
