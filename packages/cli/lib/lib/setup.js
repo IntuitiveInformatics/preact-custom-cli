@@ -20,6 +20,7 @@ exports.addScripts = async function(obj, cwd, isYarn) {
 		serve: 'preact build && preact serve',
 		start: `if-env NODE_ENV=production && ${cmd} run -s serve || ${cmd} run -s watch`,
 		watch: 'preact watch',
+		generate: "preact generate",
 	};
 };
 

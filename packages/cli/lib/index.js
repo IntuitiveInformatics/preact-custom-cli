@@ -96,6 +96,15 @@ prog
 	.action(commands.watch);
 
 prog
+	.command('generate [type] [name]')
+	.describe('Create a new component at the specified location')
+	.option('--type', 'The type of object to generate', 'component')
+	.option('--name', 'Name for the component', 'newComponent')
+	.option('--dest', 'Specify location for component creation', 'src/components/{name}')
+	.option('--cwd', 'A directory to use instead of $PWD', '.')
+	.action(commands.generate);
+
+prog
 	.command('info')
 	.describe('Print out debugging information about the local environment')
 	.action(() => {

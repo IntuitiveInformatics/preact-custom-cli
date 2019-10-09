@@ -42,6 +42,10 @@ exports.build = function(cwd, options) {
 	return cmd.build(argv.src, Object.assign({}, opts, options));
 };
 
+exports.generate = function(cwd, options) {
+	throw (this.argv);
+};
+
 exports.watch = function(cwd, port, host = '127.0.0.1') {
 	let opts = Object.assign({ cwd, host, port, https: false }, argv);
 	return cmd.watch(argv.src, opts);
