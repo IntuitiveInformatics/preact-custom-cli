@@ -38,7 +38,7 @@ function writeFiles(cwd, fileDest, name, type) {
 
 	const preparedScss = scss.replace(/name/g, name);
 
-	fs.writeFile(resolve(destination, name + '.tsx'), preparedTsx);
+	fs.writeFile(resolve(destination, 'index.tsx'), preparedTsx);
 	fs.writeFile(resolve(destination, 'style.scss'), preparedScss);
 
 	if (type === 'route') {
